@@ -1,4 +1,5 @@
 # Chroma
+<img src="https://raw.githubusercontent.com/adamantmc/chroma/master/icon128.png" align="middle">
 A syntax highlighting chrome extension using highlight.js.
 
 The extension is not available on the chrome web store. Instead, you can 
