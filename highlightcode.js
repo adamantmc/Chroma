@@ -22,25 +22,25 @@ function highlightCode() {
     head.appendChild(script);
 }
 
-var files = ["java", "sql", "c", "c++", "cxx", "cpp", "py", "sh", "pl", "js", "css"];
+//var files = ["s", "asm", "java", "sql", "c", "c++", "cxx", "cpp", "h", "py", "sh", "pl", "js", "css"];
 
 var xhr = new XMLHttpRequest();
 xhr.open('GET', document.location, false);
 xhr.send(null);
 
 content_type = xhr.getResponseHeader("content-type");
-pos = content_type.indexOf("html");
+html_pos = content_type.indexOf("html");
+text_pos = content_type.indexOf("text");
 
-extension =
-    return filename.split('.').pop();
+//extension = window.location.href.split('.').pop();
 
-if (files.indexOf(extension) >= 0) {
+if (text_pos != -1 && html_pos == -1) {
 
     chrome.storage.sync.get({
         theme: 'default',
     }, function(items) {
         var code = document.body.textContent;
-        document.write("<pre><code>" + code + "</code></pre>");
+        document.write("<pre style=\"white-space: pre-wrap; white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;\"><code>" + code + "</code></pre>");
 
         var link = document.createElement('link');
         link.rel = 'stylesheet';
