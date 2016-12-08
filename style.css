@@ -1,0 +1,25 @@
+body {
+    background-color: #ededed;
+    font-size: 10px;
+}
+
+body main {
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    padding: 10px;
+}
+    
+body header h2 {
+    text-align: center;
+    color: #333333;
+    font-family: 'Bungee', cursive;
+    font-size: 2.4em;
+}
+
+header img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
