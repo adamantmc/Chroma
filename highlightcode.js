@@ -22,6 +22,18 @@ function highlightCode() {
     head.appendChild(script);
 }
 
+function escapeHtml(text) {
+  var map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+
+  return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+}
+
 //var files = ["s", "asm", "java", "sql", "c", "c++", "cxx", "cpp", "h", "py", "sh", "pl", "js", "css"];
 
 var xhr = new XMLHttpRequest();
@@ -40,7 +52,7 @@ if (text_pos != -1 && html_pos == -1) {
         theme: 'default',
     }, function(items) {
         var code = document.body.textContent;
-        document.write("<pre style=\"white-space: pre-wrap; white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;\"><code>" + code + "</code></pre>");
+        document.write("<pre style=\"white-space: pre-wrap; white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;\"><code>" + escapeHtml(code) + "</code></pre>");
 
         var link = document.createElement('link');
         link.rel = 'stylesheet';
